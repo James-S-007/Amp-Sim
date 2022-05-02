@@ -521,7 +521,7 @@ out_pin:Output R
         // sample = (samplePositive * atan(sample)) + (sampleNegative * soft(sample));
         // sample *= 0.25;
     sample = piecewise_dist(sample);
-    sample = amp.input.lpL.eqLP(sample);
+    amp.input.lpR.eqLP(oversampling.srate, amp.input.freq.lp, 0.5);
 
     
     // FILTER STAGE 5
@@ -618,7 +618,7 @@ out_pin:Output R
     sample = amp.input.eq4R.eqTick(sample);
     
     sample = piecewise_dist(sample);
-    sample = amp.input.lpR.eqLP(sample);
+    amp.input.lpR.eqLP(oversampling.srate, amp.input.freq.lp, 0.5);
     // Previous
       // sample *= amp.input.dist4.gain;
       // sample = (samplePositive * atan(sample)) + (sampleNegative * soft(sample));

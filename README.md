@@ -74,7 +74,7 @@ sample = amp.input.eq4L.eqTick(sample);  // peak filter
 8. Distortion Stage 4 - Changed from atan/soft clip to piecewise distortion function implemented from paper
 ```cpp
 sample = piecewise_dist(sample);
-sample = amp.input.lpL.eqLP(sample);  // lowpass filter
+amp.input.lpR.eqLP(oversampling.srate, amp.input.freq.lp, 0.5);  // lowpass filter
 ```
 9. Filter Stage 5
 ```cpp
